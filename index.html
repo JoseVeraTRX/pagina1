@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <title>Mi Sitio Web con Animaciones</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales para las animaciones */
+        .fadeIn {
+            animation: fadeInAnimation 1s ease-in-out;
+        }
+
+        @keyframes fadeInAnimation {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .slideIn {
+            animation: slideInAnimation 1s ease-in-out;
+        }
+
+        @keyframes slideInAnimation {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header class="slideIn">
         <nav>
             <ul>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="hoja_de_vida.html">Hoja de Vida</a></li>
                 <li><a href="conoceme.html">Conóceme</a></li>
@@ -17,13 +38,22 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Bienvenido a mi Sitio Web</h1>
+    <main class="fadeIn">
+        <h1>Bienvenido a mi Sitio Web con Animaciones</h1>
         <p>¡Explora las diferentes secciones!</p>
     </main>
 
-    <footer>
+    <footer class="slideIn">
         <p>&copy; 2024 Mi Sitio Web</p>
     </footer>
+
+    <script>
+        // Agregar clases de animación después de que se cargue el contenido
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector("header").classList.add("slideIn");
+            document.querySelector("main").classList.add("fadeIn");
+            document.querySelector("footer").classList.add("slideIn");
+        });
+    </script>
 </body>
 </html>
